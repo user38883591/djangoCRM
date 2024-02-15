@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content%}
+    
+    <div class="col-md-6 offset-md-3">
+        {% if user.is_authenticated %}
+        <h1>Hello There </h1>
+        {% else %}
+        <h1> LOGIN </h1>
+        <form method ="post"action="{% url 'index' %}">
+            {% csrf_token %}
+            <div class="mb-3 mt-3">
+            
+                <input type="text" class="form-control" placeholder="Username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+              </div>
+              
+              <button type="submit" class="btn btn-secondary">LOGIN</button>
+        </form>
+        
+    </div>
+    {% endif %}
+    {% endblock %}
+
+</body>
+</html>
