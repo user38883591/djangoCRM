@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container mt-3">
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ Customer_record.first_name }} {{ Customer_record.last_name }}</h4><br>
+        <p class="card-text"><strong>Email: </strong>{{ Customer_record.email }}<br>
+           <strong> Phone:</strong> {{ Customer_record.phone }} <br>
+            <strong>City: </strong>{{ Customer_record.city }} <br>
+           <strong>Zipcode: </strong> {{ Customer_record.zipcode }} <br>
+          <strong>ID: </strong>  {{ Customer_record.id }}</p>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <br><br>
+<a href="{% url 'index'%}" class="btn btn-secondary">Back</a> 
+   
+<a href="{% url 'delete_record' Customer_record.id %}" class="btn btn-danger">Delete</a> 
+<a href="{% url 'update_record' Customer_record.id %}" class="btn btn-secondary">Update Record</a> 
+
+    
+     
+    
+            
+
+{% endblock %}
+</body>
+</html>
